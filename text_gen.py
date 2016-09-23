@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 from keras.models import Sequential
 from keras.layers import Dense, Activation, Dropout
 from keras.layers import LSTM
