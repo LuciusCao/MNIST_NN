@@ -65,7 +65,7 @@ for iteration in range(1,60):
         print('----- diversity:', diversity)
 
         generated = ''
-        sentence = text[start_index: start_indexl + maxlen]
+        sentence = text[start_index: start_index + maxlen]
         generated += sentence
         print('----- Generating with seed: "' + sentence + '"')
         sys.stdout.write(generated)
