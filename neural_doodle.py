@@ -1,5 +1,5 @@
-from time
-from argparse
+import time
+import argparse
 import numpy as np
 from scipy.optimize import fmin_l_bfgs_b
 from scipy.misc import imread, imsave
