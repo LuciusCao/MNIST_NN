@@ -82,7 +82,7 @@ def load_mask_labels():
     style_mask_label = labels[:img_nrows * img_ncols].reshape((img_nrows, img_ncols))
     target_mask_label = labels[img_nrows * img_ncols:].reshape((img_nrows, img_ncols))
     stack_axis = 0 if K.image_dim_ordering() == 'th' else -1
-    style_mask = np.stack([stack_mask_label == r for r in range(nb_labels)], axis=stack_axis)
+    style_mask = np.stack([style_mask_label == r for r in range(nb_labels)], axis=stack_axis)
     target_mask = np.stack([target_mask_label == r for r in range(nb_labels)], axis=stack_axis)
     return (np.expand_dims(style_mask, axis=0), np.expand_dims(target_mask, axis=0))
 
