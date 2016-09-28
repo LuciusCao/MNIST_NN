@@ -13,6 +13,7 @@ from keras.applications import vgg19
 parser = argparse.ArgumentParser(description='Keras neural doodle')
 parser.add_argument('--nlabels',type=int,help='number of semantic labels (regions in different colors) in style_mask/target_mask')
 parser.add_argument('--style-image',type=str,help='path to image to learn style from')
+parser.add_argument('--style-mask',type=str,help='path to semantic mask of style image')
 parser.add_argument('--target-mask',type=str,help='path to semantic mask of style image')
 parser.add_argument('--content-image',type=str,default=None,help='path to optional content image')
 parser.add_argument('--target-image-prefix',type=str,help='path prefix for generated results')
