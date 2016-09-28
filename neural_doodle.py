@@ -250,7 +250,7 @@ if K.image_dim_ordering() == 'th':
 else:
     x = np.random.uniform(0, 255, (1, img_nrows, img_ncols, 3)) - 128.
 
-for i in range(50):
+for i in range(1000):
     print('Start of iteration', i)
     start_time = time.time()
     x, min_val, info = fmin_l_bfgs_b(evaluator.loss, x.flatten(),
