@@ -60,7 +60,7 @@ def deprocess_image(x):
     return x
 
 def kmeans(xs, k):
-    assert sx.ndim == 2
+    assert xs.ndim == 2
     try:
         from sklearn.cluster import k_means
         _, labels, _ = k_means(xs.astype('float64'),k)
