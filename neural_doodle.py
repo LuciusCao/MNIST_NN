@@ -151,9 +151,9 @@ def load_mask_labels():
                                img_ncols:].reshape((img_nrows, img_ncols))
 
     stack_axis = 0 if K.image_dim_ordering() == 'th' else -1
-    style_mask = np.stack([style_mask_label == r for r in xrange(nb_labels)],
+    style_mask = np.stack([style_mask_label == r for r in range(nb_labels)],
                           axis=stack_axis)
-    target_mask = np.stack([target_mask_label == r for r in xrange(nb_labels)],
+    target_mask = np.stack([target_mask_label == r for r in range(nb_labels)],
                            axis=stack_axis)
 
     return (np.expand_dims(style_mask, axis=0),
@@ -247,7 +247,7 @@ def style_loss(style_image, target_image, style_masks, target_masks):
     assert 3 == K.ndim(style_image) == K.ndim(target_image)
     assert 3 == K.ndim(style_masks) == K.ndim(target_masks)
     loss = K.variable(0)
-    for i in xrange(nb_labels):
+    for i in range(nb_labels):
         if K.image_dim_ordering() == 'th':
             style_mask = style_masks[i, :, :]
             target_mask = target_masks[i, :, :]
