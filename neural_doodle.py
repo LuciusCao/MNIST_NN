@@ -67,6 +67,8 @@ parser.add_argument('--content-image', type=str, default=None,
                     help='path to optional content image')
 parser.add_argument('--target-image-prefix', type=str,
                     help='path prefix for generated results')
+parser.add_argument('--niter', type=int,
+                    help='number of iteration')
 args = parser.parse_args()
 
 style_img_path = args.style_image
@@ -77,6 +79,7 @@ target_img_prefix = args.target_image_prefix
 use_content_img = content_img_path is not None
 
 nb_labels = args.nlabels
+nb_iter = args.niter
 nb_colors = 3  # RGB
 # determine image sizes based on target_mask
 ref_img = imread(target_mask_path)
@@ -348,7 +351,7 @@ if K.image_dim_ordering() == 'th':
 else:
     x = np.random.uniform(0, 255, (1, img_nrows, img_ncols, 3)) - 128.
 
-for i in range(50):
+for i in range(nb_iter):
     print('Start of iteration', i)
     start_time = time.time()
     x, min_val, info = fmin_l_bfgs_b(evaluator.loss, x.flatten(),
